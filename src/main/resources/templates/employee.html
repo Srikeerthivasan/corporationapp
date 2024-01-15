@@ -427,7 +427,9 @@
                 <tbody>
                   <tr>
                   <th>Photo</th>
+                  	<th>Username</th>
                     <th><i class="icon_profile"></i> Full Name</th>
+                    <th><i class="icon_profile"></i>Roles</th>
                     <th><i class="icon_calendar"></i>Hire Date</th>
                     <th><i class="icon_mail_alt"></i> Email</th>
                     <th><i class="icon_pin_alt"></i> City</th>
@@ -440,7 +442,12 @@
 						 <img th:src="@{'/img/photos/' + ${employee.id} +'.jpg'}" width="40" height="40">
 						 </a>
 				    </td>
+				    <td><a th:text="${employee.username} ?: 'Check'" th:href="@{/employees/assignUsername/{id}(id=${employee.id})}"></a></td>
 					<td th:text="${employee.firstname} + ' ' + ${employee.lastname}">Fullname</td>
+					<td>
+						<a  th:href="@{'/security/user/Edit/'+${employee.id}}"
+   class="btn btn-default"><i class="icon_pencil-edit"></i>Manage Roles</a>
+					</td>
 					<td th:text="${employee.hireDate}">HireDate</td>
 					<td th:text="${employee.email}">Email</td>
 					<td th:text="${employee.city}">City</td>
@@ -850,6 +857,7 @@
 			</tr>
 		</table>
 		  <button type="submit" class="btn btn-primary">Sign in</button>
+		  <input type="hidden" id="txtUsernameEdit" name="username">
 		</form>
       </div>
       <div class="modal-footer">
