@@ -40,7 +40,7 @@ public class GrievanceController {
 	@Autowired private RoleService roleService;
 	@Autowired private UserService userService;
 	
-	//image directory
+	//image directory creation
 	public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/uploads";
 	
 	//Controller to redirect to Grievance logging form
